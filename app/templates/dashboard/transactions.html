@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Transaction{% endblock %}
+
+{% block content %}
+<h2>Add Transaction</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.jar.label(class="form-label") }}
+        {{ form.jar(class="form-select") }}
+    </div>
+    <div class="mb-3">
+        {{ form.amount.label(class="form-label") }}
+        {{ form.amount(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.type.label(class="form-label") }}
+        {{ form.type(class="form-select") }}
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+</form>
+{% endblock %}

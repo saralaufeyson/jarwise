@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ current_user.username }}!</h2>
+<p>Total Allocated: <strong>${{ total_allocated }}</strong></p>
+<p>Total Spent: <strong>${{ total_spent }}</strong></p>
+
+<a href="{{ url_for('main.create_jar') }}" class="btn btn-primary">Create New Jar</a>
+
+<h3 class="mt-4">Your Jars</h3>
+<ul class="list-group">
+    {% for jar in jars %}
+        <li class="list-group-item">
+            <strong>{{ jar.name }}</strong> - Allocated: ${{ jar.allocated }}, Spent: ${{ jar.spent }}
+            <a href="{{ url_for('main.add_transaction') }}" class="btn btn-sm btn-secondary float-end">Add Transaction</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
